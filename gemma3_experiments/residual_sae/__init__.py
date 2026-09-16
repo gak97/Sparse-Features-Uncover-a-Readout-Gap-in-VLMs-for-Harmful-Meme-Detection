@@ -1,0 +1,90 @@
+from .cache import (
+    ROLE_GENERATED,
+    ROLE_IMAGE,
+    ROLE_PROMPT,
+    compute_residual_shards,
+    run_dense_activation_cache,
+)
+from .config import (
+    DenseActivationCacheConfig,
+    GemmaResidualConfig,
+    MemeDatasetConfig,
+    ResidualCacheConfig,
+    ResidualFeatureDiscoveryConfig,
+    ResidualInferenceConfig,
+    ResidualSaeTrainConfig,
+    ResidualSteeringSweepConfig,
+)
+from .datasets import (
+    MemeSample,
+    TaskField,
+    TaskSchema,
+    build_classification_prompt,
+    build_primary_label_prompt,
+    build_simple_classify_prompt,
+    load_meme_samples,
+)
+from .devices import resolve_visible_device
+from .gemma import (
+    GemmaSae,
+    build_multimodal_inputs,
+    capture_task_hidden_states,
+    classify_constrained,
+    get_yes_no_token_ids,
+    load_gemma3_model,
+    score_label_candidates,
+    resolve_target_module,
+)
+from .joint import (
+    JointSaeOutput,
+    apply_residual_feature_delta,
+    apply_residual_feature_steering,
+    make_joint_reconstruction_hook,
+    run_joint_saes,
+)
+from .models import JumpReluResidualSae, JumpReluSaeConfig, load_residual_sae
+from .normalization import ResidualStats, load_residual_stats
+from .train import train_residual_sae
+
+__all__ = [
+    "DenseActivationCacheConfig",
+    "GemmaResidualConfig",
+    "GemmaSae",
+    "JointSaeOutput",
+    "JumpReluResidualSae",
+    "JumpReluSaeConfig",
+    "MemeDatasetConfig",
+    "MemeSample",
+    "ROLE_GENERATED",
+    "ROLE_IMAGE",
+    "ROLE_PROMPT",
+    "ResidualStats",
+    "ResidualInferenceConfig",
+    "ResidualCacheConfig",
+    "ResidualFeatureDiscoveryConfig",
+    "ResidualSaeTrainConfig",
+    "ResidualSteeringSweepConfig",
+    "TaskField",
+    "TaskSchema",
+    "apply_residual_feature_delta",
+    "apply_residual_feature_steering",
+    "build_classification_prompt",
+    "build_primary_label_prompt",
+    "build_simple_classify_prompt",
+    "build_multimodal_inputs",
+    "capture_task_hidden_states",
+    "classify_constrained",
+    "compute_residual_shards",
+    "get_yes_no_token_ids",
+    "load_gemma3_model",
+    "load_meme_samples",
+    "load_residual_stats",
+    "load_residual_sae",
+    "score_label_candidates",
+    "resolve_visible_device",
+    "make_joint_reconstruction_hook",
+    "resolve_target_module",
+    "run_dense_activation_cache",
+    "run_joint_saes",
+    "train_residual_sae",
+]
