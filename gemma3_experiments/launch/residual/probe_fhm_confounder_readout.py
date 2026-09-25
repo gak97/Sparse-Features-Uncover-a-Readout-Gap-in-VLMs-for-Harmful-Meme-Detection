@@ -1,5 +1,3 @@
-
-
 import json
 import logging
 import math
@@ -53,10 +51,6 @@ class FHMConfounderReadoutConfig:
     projection_top_k: list[int] = field(default_factory=lambda: [5, 10, 20, 50])
     include_signed_feature_columns: bool = True
     include_projection_columns: bool = True
-    # Hybrid mode: append the original SAE feature vector for one token selection.
-    # The compact confounder features carry pair-aware signal, but the previous run
-    # showed they lose some generic hate/not-hate signal. Appending all-token SAE
-    # features gives the readout both broad harm evidence and confounder evidence.
     include_generic_token_features: bool = False
     generic_token_selection: str = "all"
     include_pair_delta_rows: bool = True
