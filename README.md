@@ -31,11 +31,9 @@ qwen3_5_experiments/
   launch/              Qwen paper experiments
 ```
 
-Only experiment code used for results reported in the paper is retained. Exploratory feature-card, steering, RLFR, reward-monitor, Matryoshka, presentation, plotting, report-building, and cluster-launch code is intentionally excluded.
+## Function map
 
-## Paper-to-code map
-
-| Paper result | Gemma entrypoints | Qwen entrypoints |
+| Analysis | Gemma entrypoints | Qwen entrypoints |
 |---|---|---|
 | Dense and residual SAE construction | `cache_dense`, `compute_residuals`, `train` | `cache_dense`, `compute_residuals`, `train` |
 | Native, reconstruction-hook, and sparse-readout comparison | `joint_infer`, `probe_validate`, `probe_base_sae`, `train_raw_activation_probe` | `joint_infer`, `probe_base_sae`, `probe_sae_features`, `probe_classify` |
@@ -43,8 +41,8 @@ Only experiment code used for results reported in the paper is retained. Explora
 | Feature-output alignment and causal routing | `analyze_feature_logit_alignment`, `compute_jacobian_lens`, `analyze_jacobian_lens_features`, `probe_subspace_dynamic_patching` | `analyze_feature_logit_alignment`, `causal_mediation`, `layer_self_patching` |
 | Gemma-3-12B FHM low-rank interaction | `probe_fhm_crosscoder_pairwise`, `evaluate_fhm_bilinear_checkpoint`, `ablate_fhm_bilinear`, `analyze_bilinear_factors` | `probe_fhm_bilinear`, `probe_fhm_bilinear_base_sae` provide the reported negative control |
 | Direct logit routing | -- | `direct_logit_projection` |
-| Probe-distilled LoRA | `generate_lora_distillation_targets`, `train_lora_distillation`, `evaluate_lora_distillation` and their `_all` variants | -- |
-| EXIST and MultiBully robustness | `analyze_exist_transfer`, `analyze_multibully` | `prepare_*`, `cache_*_dense`, `analyze_*`, `infer_*_baseline`, `causal_*_mediation`, `direct_logit_projection_*` |
+| Probe-distilled LoRA | `generate_lora_distillation_targets`, `train_lora_distillation`, `evaluate_lora_distillation` | -- |
+| EXIST and MultiBully robustness | `analyze_exist_transfer`, `analyze_multibully` | `prepare`, `cache_dense`, `analyze`, `infer_baseline`, `causal_mediation`, `direct_logit_projection` |
 | Image perturbation and OCR controls | `visual_credit_audit` | `visual_credit_audit` |
 
 Module names in the table are relative to the corresponding entrypoint prefix above.
